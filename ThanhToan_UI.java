@@ -1,0 +1,194 @@
+
+import java.awt.*;
+import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+
+public class ThanhToan_UI extends JFrame {
+	private JLabel lblTitle;
+	private JPanel pNorth;
+	private JPanel pCen;
+	private JPanel pCen_North;
+	private JLabel lblTitle_Cen;
+	private JPanel pEast;
+	private JPanel pKhachHang;
+	private JPanel pThanhToan;
+	private JLabel lblSDT;
+	private JLabel lblTen;
+	private JLabel lblGTSDT;
+	private JLabel lblGTTen;
+	private JLabel lblDiem;
+	private JLabel lblGTDiem;
+	private Box b1;
+	private Box b2;
+	private Box bKH1;
+	private Container bKH2;
+	private Box bKH3;
+	private Box bTT1;
+	private JLabel lblTong;
+	private JLabel lblTien;
+	private Box bTT2;
+	private JLabel lblHinhThuc;
+	private JLabel lblPhuongThuc;
+	private JLabel lblTienThua;
+	private JLabel lblGTTienThua;
+	private Box bTT3;
+	private JPanel pButton;
+	private JButton btnHuy;
+	private JButton btnThanhToan;
+	private Box bBtn;
+	private DefaultTableModel model;
+	private JTable table;
+	private Box bTT4;
+	private JLabel lblKhachDua;
+	private JLabel lblTienKhachDua;
+
+	public ThanhToan_UI() {
+		setTitle("Thanh Toán");
+		setSize(900, 600);
+		setLocationRelativeTo(null);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		buildUI();
+	}
+	
+	public void buildUI() {
+		Color mauNenQuan = Color.decode("#F5F5DC"); // Màu kem nhạt cho nền
+		Color mauBanTrong = Color.decode("#DEB887"); // Màu gỗ sáng
+		Color mauBanDay = Color.decode("#CD853F");
+		Color mauBanBaoTri = Color.decode("#BCAE9E");
+		Color mauChu = Color.decode("#3E2723");     // Màu nâu đậm cho chữ
+		
+		lblTitle = new JLabel("Thanh Toán");
+		lblTitle.setForeground(mauChu);
+		Font fo = new Font("Arial", Font.BOLD, 30);
+		lblTitle.setFont(fo);
+		pNorth = new JPanel();
+		pNorth.add(lblTitle);
+		pNorth.setBackground(mauNenQuan);
+		add(pNorth, BorderLayout.NORTH);
+		
+		//Layout Danh Sach San Pham
+		pCen = new JPanel();
+		pCen.setBackground(mauNenQuan);
+		pCen_North = new JPanel();
+		pCen_North.setBackground(mauNenQuan);
+		lblTitle_Cen = new JLabel("Danh Sách Món");
+		lblTitle_Cen.setForeground(mauChu);
+		Font fow = new Font("Arial", Font.BOLD, 20);
+		lblTitle_Cen.setFont(fow);
+		pCen_North.add(lblTitle_Cen);
+		pCen.add(pCen_North, BorderLayout.NORTH);
+		
+		String[] headers = "STT;Tên món;Số lượng".split(";");
+		model = new DefaultTableModel(headers, 0);
+		table = new JTable(model);
+		JScrollPane scroll = new JScrollPane(table);
+		
+		String[] row1 = {"1","Cafe Sữa", "x2"};
+		String[] row2 = {"2","Bạc xỉu", "x1"};
+		
+		model.addRow(row1);
+		model.addRow(row2);
+		pCen.add(scroll, BorderLayout.CENTER);
+		add(pCen, BorderLayout.CENTER);
+		//Layout Khach Hang Va Thanh Toan
+		pEast = new JPanel();
+		Box b = Box.createVerticalBox();
+		pEast.setBackground(mauNenQuan);
+		
+		pKhachHang = new JPanel();
+		pKhachHang.setBackground(mauNenQuan);
+		b.add(b1 = Box.createHorizontalBox());
+		b.add(Box.createVerticalStrut(20));
+		b1.add(pKhachHang);
+		pKhachHang.setBorder(BorderFactory.createTitledBorder("Khách Hàng"));
+		//Tạo Box cho Panel Khách Hàng
+		Box bKH = Box.createVerticalBox();
+		
+		bKH.add(bKH1 = Box.createHorizontalBox());
+		bKH.add(Box.createVerticalStrut(10));
+		lblSDT = new JLabel("SĐT: ");
+		lblGTSDT = new JLabel("090xxxxxxx");
+		bKH1.add(lblSDT);
+		bKH1.add(lblGTSDT);
+		
+		bKH.add(bKH2 = Box.createHorizontalBox());
+		bKH.add(Box.createVerticalStrut(10));
+		lblTen = new JLabel("Tên: ");
+		lblGTTen = new JLabel("Trần Văn A");
+		bKH2.add(lblTen);
+		bKH2.add(lblGTTen);
+		
+		bKH.add(bKH3 = Box.createHorizontalBox());
+		bKH.add(Box.createVerticalStrut(10));
+		lblDiem = new JLabel("Điểm: ");
+		lblGTDiem = new JLabel("100");
+		bKH3.add(lblDiem);
+		bKH3.add(lblGTDiem);
+		
+		lblSDT.setPreferredSize(lblDiem.getPreferredSize());
+		lblTen.setPreferredSize(lblDiem.getPreferredSize());
+		pKhachHang.add(bKH);
+		
+		pThanhToan = new JPanel();
+		pThanhToan.setBackground(mauNenQuan);
+		b.add(b2 = Box.createHorizontalBox());
+		b.add(Box.createVerticalStrut(10));
+		b2.add(pThanhToan);
+		pThanhToan.setBorder(BorderFactory.createTitledBorder("Thanh Toán"));
+		
+		Box bTT = Box.createVerticalBox();
+		
+		bTT.add(bTT1 = Box.createHorizontalBox());
+		bTT.add(Box.createVerticalStrut(20));
+		
+		lblTong = new JLabel("Tổng:");
+		lblTien = new JLabel("55.000VND");
+		bTT1.add(lblTong);
+		bTT1.add(lblTien);
+		
+		bTT.add(bTT2 = Box.createHorizontalBox());
+		bTT.add(Box.createVerticalStrut(10));
+		
+		lblHinhThuc = new JLabel("Hình thức: ");
+		lblPhuongThuc = new JLabel("Tiền mặt");
+		bTT2.add(lblHinhThuc);
+		bTT2.add(lblPhuongThuc);
+		
+		bTT.add(bTT3 = Box.createHorizontalBox());
+		bTT.add(Box.createVerticalStrut(10));
+		
+		lblKhachDua = new JLabel("Khách đưa: ");
+		lblTienKhachDua = new JLabel("100.000VND");
+		bTT3.add(lblKhachDua);
+		bTT3.add(lblTienKhachDua);
+		
+		bTT.add(bTT4 = Box.createHorizontalBox());
+		bTT.add(Box.createVerticalStrut(10));
+		
+		lblTienThua = new JLabel("Tiền thừa: ");
+		lblGTTienThua = new JLabel("45.000VND");
+		bTT4.add(lblTienThua);
+		bTT4.add(lblGTTienThua);
+		pThanhToan.add(bTT);
+		
+		b.add(bBtn = Box.createHorizontalBox());
+		b.add(Box.createVerticalStrut(10));
+		btnHuy = new JButton("Huỷ");
+		btnThanhToan = new JButton("Thanh Toán");
+		bBtn.add(btnHuy);
+		bBtn.add(btnThanhToan);
+		
+		btnHuy.setBackground(mauBanTrong);
+		btnThanhToan.setBackground(mauBanTrong);
+		
+		pEast.add(b);
+		pEast.setPreferredSize(new Dimension(350, 0));
+		add(pEast, BorderLayout.EAST);
+		
+		setVisible(true);
+	}
+	
+	public static void main(String[] args) {
+		ThanhToan_UI frm = new ThanhToan_UI();
+	}
+}
