@@ -1,3 +1,4 @@
+package UI;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Container;
@@ -18,6 +19,8 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JSplitPane;
 import javax.swing.JTextField;
+
+import Class.TaiKhoan;
 
 public class DangNhap_UI extends JFrame implements ActionListener, KeyListener {
 

@@ -1,3 +1,4 @@
+package Class;
 
 public class TaiKhoan {
 	  private String tenDangNhap;
