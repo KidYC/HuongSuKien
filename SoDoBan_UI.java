@@ -81,8 +81,7 @@ public class SoDoBan_UI extends JFrame{
 		hienBaoTri.setEnabled(false);
 		JLabel lblBaoTri = new JLabel("Bàn Bảo Trì"); 
 		lblBaoTri.setFont(new Font("Tahoma", Font.PLAIN, 13));
-
-		
+	
 		pSouth.add(hienTrong);
 		pSouth.add(lblTrong);
 		

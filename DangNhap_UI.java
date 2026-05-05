@@ -45,7 +45,7 @@ public class DangNhap_UI extends JFrame implements ActionListener, KeyListener {
 	     Color mauNen = Color.decode("#F5F5DC"); 
 		 Color mauBtn = Color.decode("#DEB887"); 
 		 Color mauChu = Color.decode("#3E2723");     
-	     tk = new TaiKhoan("admin", "123");
+	     tk = new TaiKhoan("admin", "12345");
 	     
 	     pNorth = new JPanel();
 	     lbltieude = new JLabel("Đăng Nhập");
@@ -104,7 +104,8 @@ public class DangNhap_UI extends JFrame implements ActionListener, KeyListener {
 		String pwd = new String(txtPwd.getPassword());
 		
 		if (tk.dangNhap(user, pwd)) {
-            JOptionPane.showMessageDialog(this, "Đăng nhập thành công!");
+            new goimon_UI().setVisible(true);
+            dispose();
         } else {
             JOptionPane.showMessageDialog(this, "Sai tài khoản hoặc mật khẩu!");
         }
