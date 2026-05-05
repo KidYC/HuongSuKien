@@ -1,5 +1,4 @@
 
-
 import javax.management.modelmbean.ModelMBean;
 import javax.swing.BorderFactory;
 import javax.swing.Box;
@@ -61,13 +60,15 @@ public class goimon_UI extends JFrame implements ActionListener{
 	private JButton btn21;
 	private JButton btn22;
 	private JScrollPane scroll;
+	private JButton thanhtoan;
+	private JPanel pSouthR;
 	private static final long serialVersionUID = 1L;
 	
 	public goimon_UI() {
 		Color maunenquan = Color.decode("#F5F5DC");
 		Color mauchu = Color.decode("#3E2723");
 		setTitle("QLCF_UI");
-		setSize(600,600);
+		setSize(650,600);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setLayout(new BorderLayout());
 		
@@ -260,6 +261,7 @@ public class goimon_UI extends JFrame implements ActionListener{
 		btn21.addActionListener(this);
 		btn22.addActionListener(this);
 		
+		
 		scroll = new JScrollPane(pleft);
 		//pright
 		pright.setLayout(new BorderLayout());
@@ -274,8 +276,17 @@ public class goimon_UI extends JFrame implements ActionListener{
 		table = new JTable(dsmon);
 		sr = new JScrollPane(table);
 		tongtien = new JLabel("Tổng tiền: 0đ");
+		thanhtoan = new JButton("Thanh Toán");
+		thanhtoan.addActionListener(this);
 		pright.add(sr,BorderLayout.CENTER);
-		pright.add(tongtien,BorderLayout.SOUTH);
+		
+		//pSouthR
+		pSouthR = new JPanel();
+		pSouthR.setLayout(new BoxLayout(pSouthR,BoxLayout.X_AXIS));
+		pSouthR.add(tongtien);
+		pSouthR.add(Box.createHorizontalStrut(120));
+		pSouthR.add(thanhtoan);
+		pright.add(pSouthR,BorderLayout.SOUTH);
 		
 		
 		
@@ -405,6 +416,9 @@ public class goimon_UI extends JFrame implements ActionListener{
 	        dsmon.addRow(new Object[]{"Sữa chua việt quốc", 25000});
 	        total= total+25000;
 	    } 
+	    else if (e.getSource()==thanhtoan) {
+	    	    new ThanhToan_UI();
+	    }
 		tongtien.setText("Tổng tiền: "+ total+"đ");
 		
 	}

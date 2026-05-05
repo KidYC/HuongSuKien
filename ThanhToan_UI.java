@@ -1,9 +1,13 @@
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseListener;
+
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
-public class ThanhToan_UI extends JFrame {
+public class ThanhToan_UI extends JFrame implements ActionListener{
 	private JLabel lblTitle;
 	private JPanel pNorth;
 	private JPanel pCen;
@@ -41,6 +45,9 @@ public class ThanhToan_UI extends JFrame {
 	private Box bTT4;
 	private JLabel lblKhachDua;
 	private JLabel lblTienKhachDua;
+	private JTextField txtSDT;
+	private JTextField txtDiem;
+	private JTextField txtTen;
 
 	public ThanhToan_UI() {
 		setTitle("Thanh Toán");
@@ -107,23 +114,23 @@ public class ThanhToan_UI extends JFrame {
 		bKH.add(bKH1 = Box.createHorizontalBox());
 		bKH.add(Box.createVerticalStrut(10));
 		lblSDT = new JLabel("SĐT: ");
-		lblGTSDT = new JLabel("090xxxxxxx");
+		txtSDT = new JTextField(10);
 		bKH1.add(lblSDT);
-		bKH1.add(lblGTSDT);
+		bKH1.add(txtSDT);
 		
 		bKH.add(bKH2 = Box.createHorizontalBox());
 		bKH.add(Box.createVerticalStrut(10));
 		lblTen = new JLabel("Tên: ");
-		lblGTTen = new JLabel("Trần Văn A");
+		txtTen = new JTextField(10);
 		bKH2.add(lblTen);
-		bKH2.add(lblGTTen);
+		bKH2.add(txtTen);
 		
 		bKH.add(bKH3 = Box.createHorizontalBox());
 		bKH.add(Box.createVerticalStrut(10));
 		lblDiem = new JLabel("Điểm: ");
-		lblGTDiem = new JLabel("100");
+		txtDiem = new JTextField(10);
 		bKH3.add(lblDiem);
-		bKH3.add(lblGTDiem);
+		bKH3.add(txtDiem);
 		
 		lblSDT.setPreferredSize(lblDiem.getPreferredSize());
 		lblTen.setPreferredSize(lblDiem.getPreferredSize());
@@ -142,7 +149,7 @@ public class ThanhToan_UI extends JFrame {
 		bTT.add(Box.createVerticalStrut(20));
 		
 		lblTong = new JLabel("Tổng:");
-		lblTien = new JLabel("55.000VND");
+		lblTien = new JLabel("73.000VND");
 		bTT1.add(lblTong);
 		bTT1.add(lblTien);
 		
@@ -166,7 +173,7 @@ public class ThanhToan_UI extends JFrame {
 		bTT.add(Box.createVerticalStrut(10));
 		
 		lblTienThua = new JLabel("Tiền thừa: ");
-		lblGTTienThua = new JLabel("45.000VND");
+		lblGTTienThua = new JLabel("27.000VND");
 		bTT4.add(lblTienThua);
 		bTT4.add(lblGTTienThua);
 		pThanhToan.add(bTT);
@@ -185,10 +192,32 @@ public class ThanhToan_UI extends JFrame {
 		pEast.setPreferredSize(new Dimension(350, 0));
 		add(pEast, BorderLayout.EAST);
 		
+		btnThanhToan.addActionListener(this);
+		btnHuy.addActionListener(this);
 		setVisible(true);
 	}
 	
 	public static void main(String[] args) {
 		ThanhToan_UI frm = new ThanhToan_UI();
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		Object source = e.getSource();
+		
+		//South
+		if(source.equals(btnThanhToan))
+		{
+			JOptionPane.showMessageDialog(this, "Thanh Toán Thành Công");
+			new goimon_UI().setVisible(true);
+			dispose();
+		}
+		
+		if(source.equals(btnHuy)) {
+			dispose();
+			new goimon_UI().setVisible(true);
+			
+		}
 	}
 }
