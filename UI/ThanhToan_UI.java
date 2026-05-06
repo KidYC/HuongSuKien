@@ -49,23 +49,25 @@ public class ThanhToan_UI extends JFrame implements ActionListener{
 	private JTextField txtSDT;
 	private JTextField txtDiem;
 	private JTextField txtTen;
+	private int tongtien;
+	private int tienthua;
+	private int soban;
 
-	public ThanhToan_UI() {
+	public ThanhToan_UI(DefaultTableModel modelGoiMon,int soBan) {
+		this.soban=soBan;
+		Color mauNenQuan = Color.decode("#F5F5DC"); // MÃ u kem nháº¡t cho ná»�n
+		Color mauBanTrong = Color.decode("#DEB887"); // MÃ u gá»— sÃ¡ng
+		Color mauBanDay = Color.decode("#CD853F");
+		Color mauBanBaoTri = Color.decode("#BCAE9E");
+		Color mauChu = Color.decode("#3E2723"); 
 		setTitle("Thanh Toán");
 		setSize(900, 600);
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		buildUI();
-	}
-	
-	public void buildUI() {
-		Color mauNenQuan = Color.decode("#F5F5DC"); // Màu kem nhạt cho nền
-		Color mauBanTrong = Color.decode("#DEB887"); // Màu gỗ sáng
-		Color mauBanDay = Color.decode("#CD853F");
-		Color mauBanBaoTri = Color.decode("#BCAE9E");
-		Color mauChu = Color.decode("#3E2723");     // Màu nâu đậm cho chữ
 		
-		lblTitle = new JLabel("Thanh Toán");
+		   
+
+		lblTitle = new JLabel("Thanh Toán - Bàn"+soban);
 		lblTitle.setForeground(mauChu);
 		Font fo = new Font("Arial", Font.BOLD, 30);
 		lblTitle.setFont(fo);
@@ -86,16 +88,23 @@ public class ThanhToan_UI extends JFrame implements ActionListener{
 		pCen_North.add(lblTitle_Cen);
 		pCen.add(pCen_North, BorderLayout.NORTH);
 		
-		String[] headers = "STT;Tên món;Số lượng".split(";");
+		String[] headers = {"STT","Tên món","Giá"};
 		model = new DefaultTableModel(headers, 0);
 		table = new JTable(model);
 		JScrollPane scroll = new JScrollPane(table);
 		
-		String[] row1 = {"1","Cafe Sữa", "x2"};
-		String[] row2 = {"2","Bạc xỉu", "x1"};
+		for(int i =0;i<modelGoiMon.getRowCount();i++) {
+			Object tenMon = modelGoiMon.getValueAt(i,0);
+			Object Gia = modelGoiMon.getValueAt(i,1);
+			
+			model.addRow(new Object [] {i+1,tenMon,Gia});
+			tongtien+=(int)modelGoiMon.getValueAt(i, 1);
+		}
 		
-		model.addRow(row1);
-		model.addRow(row2);
+	
+		
+		
+		
 		pCen.add(scroll, BorderLayout.CENTER);
 		add(pCen, BorderLayout.CENTER);
 		//Layout Khach Hang Va Thanh Toan
@@ -109,12 +118,12 @@ public class ThanhToan_UI extends JFrame implements ActionListener{
 		b.add(Box.createVerticalStrut(20));
 		b1.add(pKhachHang);
 		pKhachHang.setBorder(BorderFactory.createTitledBorder("Khách Hàng"));
-		//Tạo Box cho Panel Khách Hàng
+		//Táº¡o Box cho Panel KhÃ¡ch HÃ ng
 		Box bKH = Box.createVerticalBox();
 		
 		bKH.add(bKH1 = Box.createHorizontalBox());
 		bKH.add(Box.createVerticalStrut(10));
-		lblSDT = new JLabel("SĐT: ");
+		lblSDT = new JLabel("SDT: ");
 		txtSDT = new JTextField(10);
 		bKH1.add(lblSDT);
 		bKH1.add(txtSDT);
@@ -149,34 +158,34 @@ public class ThanhToan_UI extends JFrame implements ActionListener{
 		bTT.add(bTT1 = Box.createHorizontalBox());
 		bTT.add(Box.createVerticalStrut(20));
 		
-		lblTong = new JLabel("Tổng:");
-		lblTien = new JLabel("73.000VND");
+		
+		lblTong = new JLabel("Tổng:"+tongtien+"VND");
+		
 		bTT1.add(lblTong);
-		bTT1.add(lblTien);
 		
 		bTT.add(bTT2 = Box.createHorizontalBox());
 		bTT.add(Box.createVerticalStrut(10));
 		
-		lblHinhThuc = new JLabel("Hình thức: ");
-		lblPhuongThuc = new JLabel("Tiền mặt");
+		lblHinhThuc = new JLabel("Hình Thức: ");
+		lblPhuongThuc = new JLabel("Tiền Mặt");
 		bTT2.add(lblHinhThuc);
 		bTT2.add(lblPhuongThuc);
 		
 		bTT.add(bTT3 = Box.createHorizontalBox());
 		bTT.add(Box.createVerticalStrut(10));
 		
-		lblKhachDua = new JLabel("Khách đưa: ");
-		lblTienKhachDua = new JLabel("100.000VND");
+		lblKhachDua = new JLabel("Khách Đưa: ");
+		lblTienKhachDua = new JLabel("200.000VND");
 		bTT3.add(lblKhachDua);
 		bTT3.add(lblTienKhachDua);
 		
 		bTT.add(bTT4 = Box.createHorizontalBox());
 		bTT.add(Box.createVerticalStrut(10));
 		
-		lblTienThua = new JLabel("Tiền thừa: ");
-		lblGTTienThua = new JLabel("27.000VND");
+		tienthua= 200000-tongtien;
+		lblTienThua = new JLabel("Tiền Thừa:"+tienthua+"VND");
+		
 		bTT4.add(lblTienThua);
-		bTT4.add(lblGTTienThua);
 		pThanhToan.add(bTT);
 		
 		b.add(bBtn = Box.createHorizontalBox());
@@ -199,7 +208,7 @@ public class ThanhToan_UI extends JFrame implements ActionListener{
 	}
 	
 	public static void main(String[] args) {
-		ThanhToan_UI frm = new ThanhToan_UI();
+
 	}
 
 	@Override

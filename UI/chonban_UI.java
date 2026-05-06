@@ -24,11 +24,11 @@ public class chonban_UI extends JFrame implements ActionListener{
 	private JButton ban8;
 	private JButton ban9;
 	public chonban_UI(){
-		Color mauNenQuan = Color.decode("#F5F5DC"); // Màu kem nhạt cho nền
-		Color mauBanTrong = Color.decode("#DEB887"); // Màu gỗ sáng
+		Color mauNenQuan = Color.decode("#F5F5DC"); 
+		Color mauBanTrong = Color.decode("#DEB887"); 
 		Color mauBanDay = Color.decode("#CD853F");
 		Color mauBanBaoTri = Color.decode("#BCAE9E");
-		Color mauChu = Color.decode("#3E2723");     // Màu nâu đậm cho chữ
+		Color mauChu = Color.decode("#3E2723");     
 		setSize(600,600);
 		
 		pNorth = new JPanel();
@@ -101,7 +101,7 @@ public class chonban_UI extends JFrame implements ActionListener{
 		hienBaoTri.setPreferredSize(new Dimension(20, 20));
 		hienBaoTri.setBackground(mauBanBaoTri);
 		hienBaoTri.setEnabled(false);
-		JLabel lblBaoTri = new JLabel("Bàn Bảo Trì"); 
+		JLabel lblBaoTri = new JLabel("Bàn bảo trì"); 
 		lblBaoTri.setFont(new Font("Tahoma", Font.PLAIN, 13));
 
 		

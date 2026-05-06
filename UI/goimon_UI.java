@@ -62,11 +62,11 @@ public class goimon_UI extends JFrame implements ActionListener{
 	private JScrollPane scroll;
 	private JButton thanhtoan;
 	private JPanel pSouthR;
-	private int soBan;
+	private int soban;
 	private static final long serialVersionUID = 1L;
 	
 	public goimon_UI(int soBan) {
-		this.soBan=soBan;
+		this.soban=soBan;
 		Color maunenquan = Color.decode("#F5F5DC");
 		Color mauchu = Color.decode("#3E2723");
 		setTitle("QLCF_UI");
@@ -78,7 +78,7 @@ public class goimon_UI extends JFrame implements ActionListener{
 		
 		//pNorth
 		pNorth = new JPanel();
-		lbltieude = new JLabel("COFFEE CHỒN -Bàn "+soBan);
+		lbltieude = new JLabel("COFFEE Chồn -Bàn"+soBan);
 		lbltieude.setFont(new Font("Arial", Font.BOLD, 20));
 		lbltieude.setHorizontalAlignment(JLabel.CENTER);
 		pNorth.add(lbltieude);
@@ -98,61 +98,61 @@ public class goimon_UI extends JFrame implements ActionListener{
 		 pleft2 = new JPanel();
 		
 		
-		lblme = new JLabel("Menu món");
-		lblme.setFont(new Font("Arial", Font.BOLD, 20));
-		btn1 = new JButton("Cà phê đen");
-		btn1.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
-		btn2 = new JButton("Cà phê sữa");
-		btn2.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
-		btn3 = new JButton("Bạc xĩu");
-		btn3.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
-		btn4 = new JButton("Bò húc");
-		btn4.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
-		
-		btn5 = new JButton("Trà sữa việt quốc");
-		btn5.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
-		btn6 = new JButton("Trà sữa lài");
-		btn6.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
-		btn7 = new JButton("Trà xanh");
-		btn7.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
-		btn8 = new JButton("Trà đào");
-		btn8.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
-		
-		
-		btn9 = new JButton("Trà vải");
-		btn9.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
-		btn10 = new JButton("Trà gừng");
-		btn10.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
-		btn11 = new JButton("Trà ổi hồng");
-		btn11.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
-		
-		
-		
-		btn12 = new JButton("Nước cam ép");
-		btn12.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
-		btn13 = new JButton("Nước chanh tươi");
-		btn13.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
-		btn14 = new JButton("Soda chanh");
-		btn14.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
-		btn15 = new JButton("Soda dâu");
-		btn15.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
-		
-		btn16 = new JButton("Sinh tố bơ");
-		btn16.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
-		btn17 = new JButton("Sinh tố xoài");
-		btn17.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
-		btn18 = new JButton("Sinh tố dâu");
-		btn18.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
-		btn19 = new JButton("Nước ép cà rốt");
-		btn19.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
-		
-		
-		btn20 = new JButton("Nước ép dứa");
-		btn20.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
-		btn21 = new JButton("Sữa chua đá");
-		btn21.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
-		btn22 = new JButton("Sữa chua việt quốc");
-		btn22.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
+		 lblme = new JLabel("Menu món");
+			lblme.setFont(new Font("Arial", Font.BOLD, 20));
+			btn1 = new JButton("Cà phê đen");
+			btn1.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
+			btn2 = new JButton("Cà phê sữa");
+			btn2.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
+			btn3 = new JButton("Bạc xĩu");
+			btn3.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
+			btn4 = new JButton("Bò húc");
+			btn4.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
+			
+			btn5 = new JButton("Trà sữa việt quốc");
+			btn5.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
+			btn6 = new JButton("Trà sữa lài");
+			btn6.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
+			btn7 = new JButton("Trà xanh");
+			btn7.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
+			btn8 = new JButton("Trà đào");
+			btn8.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
+			
+			
+			btn9 = new JButton("Trà vải");
+			btn9.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
+			btn10 = new JButton("Trà gừng");
+			btn10.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
+			btn11 = new JButton("Trà ổi hồng");
+			btn11.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
+			
+			
+			
+			btn12 = new JButton("Nước cam ép");
+			btn12.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
+			btn13 = new JButton("Nước chanh tươi");
+			btn13.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
+			btn14 = new JButton("Soda chanh");
+			btn14.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
+			btn15 = new JButton("Soda dâu");
+			btn15.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
+			
+			btn16 = new JButton("Sinh tố bơ");
+			btn16.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
+			btn17 = new JButton("Sinh tố xoài");
+			btn17.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
+			btn18 = new JButton("Sinh tố dâu");
+			btn18.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
+			btn19 = new JButton("Nước ép cà rốt");
+			btn19.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
+			
+			
+			btn20 = new JButton("Nước ép dứa");
+			btn20.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
+			btn21 = new JButton("Sữa chua đá");
+			btn21.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
+			btn22 = new JButton("Sữa chua việt quốc");
+			btn22.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
 		
 		styleButton(btn1);
 		styleButton(btn2);
@@ -419,7 +419,7 @@ public class goimon_UI extends JFrame implements ActionListener{
 	        total= total+25000;
 	    } 
 	    else if (e.getSource()==thanhtoan) {
-	    	    new ThanhToan_UI();
+	    	    new ThanhToan_UI(dsmon,soban);
 	    }
 		tongtien.setText("Tổng tiền: "+ total+"đ");
 		
