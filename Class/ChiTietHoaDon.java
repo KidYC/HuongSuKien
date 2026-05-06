@@ -1,37 +1,63 @@
 package Class;
 
 public class ChiTietHoaDon {
-	private int maHD;
-	private int maSP;
+	private String maChiTietHoaDon;
 	private int soLuong;
-	public ChiTietHoaDon(int maHD, int maSP, int soLuong) {
-		
-		this.maHD = maHD;
-		this.maSP = maSP;
+	private float donGia;
+	private String trangThai;
+	
+	public ChiTietHoaDon(String maChiTietHoaDon, int soLuong, float donGia, String trangThai) {
+		this.maChiTietHoaDon = maChiTietHoaDon;
 		this.soLuong = soLuong;
+		this.donGia = donGia;
+		this.trangThai = trangThai;
 	}
-	public int getMaHD() {
-		return maHD;
+	
+
+	public String getMaChiTietHoaDon() {
+		return maChiTietHoaDon;
 	}
-	public void setMaHD(int maHD) {
-		this.maHD = maHD;
+
+
+	public void setMaChiTietHoaDon(String maChiTietHoaDon) {
+		this.maChiTietHoaDon = maChiTietHoaDon;
 	}
-	public int getMaSP() {
-		return maSP;
-	}
-	public void setMaSP(int maSP) {
-		this.maSP = maSP;
-	}
+
+
 	public int getSoLuong() {
 		return soLuong;
 	}
+
+
 	public void setSoLuong(int soLuong) {
 		this.soLuong = soLuong;
 	}
+
+
+	public float getDonGia() {
+		return donGia;
+	}
+
+
+	public void setDonGia(float donGia) {
+		this.donGia = donGia;
+	}
+
+
+	public String getTrangThai() {
+		return trangThai;
+	}
+
+
+	public void setTrangThai(String trangThai) {
+		this.trangThai = trangThai;
+	}
+
+
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return maHD+"-"+maSP+"-"+soLuong;
+		return maChiTietHoaDon+"-"+soLuong+"-"+donGia+"-"+trangThai;
 	}
 	
 
