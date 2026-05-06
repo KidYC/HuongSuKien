@@ -7,6 +7,8 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
+import DAO.SanPham_DAO;
+
 public class SanPham_UI extends JFrame implements ActionListener{
 	private JLabel lblTitle;
 	private JPanel pNorth;
@@ -35,6 +37,7 @@ public class SanPham_UI extends JFrame implements ActionListener{
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		buildUI();
+		loadData();
 	}
 	
 	public void buildUI() {
@@ -53,9 +56,6 @@ public class SanPham_UI extends JFrame implements ActionListener{
 		pNorth.add(lblTitle);
 		pNorth.setBackground(mauNenQuan);
 		add(pNorth, BorderLayout.NORTH);
-		
-		
-		
 		
 		Box b = Box.createVerticalBox();
 		Box b1, b2, b3, b4, b5;
@@ -135,6 +135,11 @@ public class SanPham_UI extends JFrame implements ActionListener{
 		
 		add(pSouth, BorderLayout.SOUTH);
 		setVisible(true);
+	}
+	
+	public void loadData() {
+	    SanPham_DAO dao = new SanPham_DAO();
+	    dao.loadDataToTable(model); 
 	}
 	
 	public static void main(String[] args) {
