@@ -129,6 +129,10 @@ public class TrangChu_UI extends JFrame {
         btnBanHang.addActionListener(e -> {new chonban_UI().setVisible(true);});
 
         btnSanPham.addActionListener(e -> {new SanPham_UI().setVisible(true);});
+        
+        btnNhanVien.addActionListener(e -> {new NhanVien_UI().setVisible(true);});
+        
+        btnHoaDon.addActionListener(e -> {new HoaDon_UI().setVisible(true);});
 
         btnDangXuat.addActionListener(e -> {
             int confirm = JOptionPane.showConfirmDialog(this,
@@ -162,7 +166,7 @@ public class TrangChu_UI extends JFrame {
         JPanel p = new JPanel(new BorderLayout());
         
         JLabel img = new JLabel();
-img.setHorizontalAlignment(JLabel.CENTER);
+        img.setHorizontalAlignment(JLabel.CENTER);
         
         ImageIcon icon = new ImageIcon(getClass().getResource(imgPath));
         Image scaled = icon.getImage().getScaledInstance(120, 90, Image.SCALE_SMOOTH);
