@@ -36,6 +36,7 @@ public class HoaDon_UI extends JFrame{
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		buildUI();
+		
 	}
 	
 
