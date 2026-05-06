@@ -55,19 +55,19 @@ public class ThanhToan_UI extends JFrame implements ActionListener{
 
 	public ThanhToan_UI(DefaultTableModel modelGoiMon,int soBan) {
 		this.soban=soBan;
-		Color mauNenQuan = Color.decode("#F5F5DC"); // MÃ u kem nháº¡t cho ná»�n
-		Color mauBanTrong = Color.decode("#DEB887"); // MÃ u gá»— sÃ¡ng
+		Color mauNenQuan = Color.decode("#F5F5DC"); // MÃƒÂ u kem nhÃ¡ÂºÂ¡t cho nÃ¡Â»ï¿½n
+		Color mauBanTrong = Color.decode("#DEB887"); // MÃƒÂ u gÃ¡Â»â€” sÃƒÂ¡ng
 		Color mauBanDay = Color.decode("#CD853F");
 		Color mauBanBaoTri = Color.decode("#BCAE9E");
 		Color mauChu = Color.decode("#3E2723"); 
-		setTitle("Thanh Toán");
+		setTitle("Thanh ToÃ¡n");
 		setSize(900, 600);
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
 		   
 
-		lblTitle = new JLabel("Thanh Toán - Bàn"+soban);
+		lblTitle = new JLabel("Thanh ToÃ¡n - BÃ n"+soban);
 		lblTitle.setForeground(mauChu);
 		Font fo = new Font("Arial", Font.BOLD, 30);
 		lblTitle.setFont(fo);
@@ -81,14 +81,14 @@ public class ThanhToan_UI extends JFrame implements ActionListener{
 		pCen.setBackground(mauNenQuan);
 		pCen_North = new JPanel();
 		pCen_North.setBackground(mauNenQuan);
-		lblTitle_Cen = new JLabel("Danh Sách Món");
+		lblTitle_Cen = new JLabel("Danh SÃ¡ch MÃ³n");
 		lblTitle_Cen.setForeground(mauChu);
 		Font fow = new Font("Arial", Font.BOLD, 20);
 		lblTitle_Cen.setFont(fow);
 		pCen_North.add(lblTitle_Cen);
 		pCen.add(pCen_North, BorderLayout.NORTH);
 		
-		String[] headers = {"STT","Tên món","Giá"};
+		String[] headers = {"STT","TÃªn mÃ³n","GiÃ¡"};
 		model = new DefaultTableModel(headers, 0);
 		table = new JTable(model);
 		JScrollPane scroll = new JScrollPane(table);
@@ -117,8 +117,8 @@ public class ThanhToan_UI extends JFrame implements ActionListener{
 		b.add(b1 = Box.createHorizontalBox());
 		b.add(Box.createVerticalStrut(20));
 		b1.add(pKhachHang);
-		pKhachHang.setBorder(BorderFactory.createTitledBorder("Khách Hàng"));
-		//Táº¡o Box cho Panel KhÃ¡ch HÃ ng
+		pKhachHang.setBorder(BorderFactory.createTitledBorder("KhÃ¡ch HÃ ng"));
+		//TÃ¡ÂºÂ¡o Box cho Panel KhÃƒÂ¡ch HÃƒÂ ng
 		Box bKH = Box.createVerticalBox();
 		
 		bKH.add(bKH1 = Box.createHorizontalBox());
@@ -130,14 +130,14 @@ public class ThanhToan_UI extends JFrame implements ActionListener{
 		
 		bKH.add(bKH2 = Box.createHorizontalBox());
 		bKH.add(Box.createVerticalStrut(10));
-		lblTen = new JLabel("Tên: ");
+		lblTen = new JLabel("TÃªn: ");
 		txtTen = new JTextField(10);
 		bKH2.add(lblTen);
 		bKH2.add(txtTen);
 		
 		bKH.add(bKH3 = Box.createHorizontalBox());
 		bKH.add(Box.createVerticalStrut(10));
-		lblDiem = new JLabel("Điểm: ");
+		lblDiem = new JLabel("Ä�iá»ƒm: ");
 		txtDiem = new JTextField(10);
 		bKH3.add(lblDiem);
 		bKH3.add(txtDiem);
@@ -151,7 +151,7 @@ public class ThanhToan_UI extends JFrame implements ActionListener{
 		b.add(b2 = Box.createHorizontalBox());
 		b.add(Box.createVerticalStrut(10));
 		b2.add(pThanhToan);
-		pThanhToan.setBorder(BorderFactory.createTitledBorder("Thanh Toán"));
+		pThanhToan.setBorder(BorderFactory.createTitledBorder("Thanh ToÃ¡n"));
 		
 		Box bTT = Box.createVerticalBox();
 		
@@ -159,22 +159,22 @@ public class ThanhToan_UI extends JFrame implements ActionListener{
 		bTT.add(Box.createVerticalStrut(20));
 		
 		
-		lblTong = new JLabel("Tổng:"+tongtien+"VND");
+		lblTong = new JLabel("Tá»•ng:"+tongtien+"VND");
 		
 		bTT1.add(lblTong);
 		
 		bTT.add(bTT2 = Box.createHorizontalBox());
 		bTT.add(Box.createVerticalStrut(10));
 		
-		lblHinhThuc = new JLabel("Hình Thức: ");
-		lblPhuongThuc = new JLabel("Tiền Mặt");
+		lblHinhThuc = new JLabel("HÃ¬nh Thá»©c: ");
+		lblPhuongThuc = new JLabel("Tiá»�n Máº·t");
 		bTT2.add(lblHinhThuc);
 		bTT2.add(lblPhuongThuc);
 		
 		bTT.add(bTT3 = Box.createHorizontalBox());
 		bTT.add(Box.createVerticalStrut(10));
 		
-		lblKhachDua = new JLabel("Khách Đưa: ");
+		lblKhachDua = new JLabel("KhÃ¡ch Ä�Æ°a: ");
 		lblTienKhachDua = new JLabel("200.000VND");
 		bTT3.add(lblKhachDua);
 		bTT3.add(lblTienKhachDua);
@@ -183,15 +183,15 @@ public class ThanhToan_UI extends JFrame implements ActionListener{
 		bTT.add(Box.createVerticalStrut(10));
 		
 		tienthua= 200000-tongtien;
-		lblTienThua = new JLabel("Tiền Thừa:"+tienthua+"VND");
+		lblTienThua = new JLabel("Tiá»�n Thá»«a:"+tienthua+"VND");
 		
 		bTT4.add(lblTienThua);
 		pThanhToan.add(bTT);
 		
 		b.add(bBtn = Box.createHorizontalBox());
 		b.add(Box.createVerticalStrut(10));
-		btnHuy = new JButton("Huỷ");
-		btnThanhToan = new JButton("Thanh Toán");
+		btnHuy = new JButton("Huá»·");
+		btnThanhToan = new JButton("Thanh ToÃ¡n");
 		bBtn.add(btnHuy);
 		bBtn.add(btnThanhToan);
 		
@@ -210,6 +210,7 @@ public class ThanhToan_UI extends JFrame implements ActionListener{
 	public static void main(String[] args) {
 
 	}
+	
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -219,8 +220,7 @@ public class ThanhToan_UI extends JFrame implements ActionListener{
 		//South
 		if(source.equals(btnThanhToan))
 		{
-			JOptionPane.showMessageDialog(this, "Thanh Toán Thành Công");
-//			new goimon_UI().setVisible(true);
+			JOptionPane.showMessageDialog(this, "Thanh ToÃ¡n ThÃ nh CÃ´ng");
 			dispose();
 		}
 		

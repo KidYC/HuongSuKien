@@ -126,10 +126,15 @@ public class chonban_UI extends JFrame implements ActionListener{
 		ban9.addActionListener(this);
 		setVisible(true);
 	}
+	public void moBan(JButton btnBan) { 
+		Color mauBanDay = Color.decode("#CD853F");
+		btnBan.setBackground(mauBanDay);
+	    btnBan.setText("Có khách");
+	}
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource()==ban1) {
-			new goimon_UI(1);
+		    new goimon_UI(1);
 		}
 		else if (e.getSource()==ban2) {
 			new goimon_UI(2);
