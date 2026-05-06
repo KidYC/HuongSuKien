@@ -3,32 +3,29 @@ package DAO;
 import java.sql.*;
 import java.util.ArrayList;
 
-import Database.ConnectDB;
 import Class.NhanVien;
+import Database.ConnectDB;
 
 public class NhanVien_DAO {
 
+    // ================== LẤY DANH SÁCH ==================
     public ArrayList<NhanVien> getAllNhanVien() {
-
         ArrayList<NhanVien> ds = new ArrayList<>();
 
-        try {
-            Connection con = ConnectDB.getConnection();
+        String sql = "SELECT * FROM NhanVien";
 
-            String sql = "SELECT * FROM NhanVien";
-            Statement st = con.createStatement();
-
-            ResultSet rs = st.executeQuery(sql);
+        try (Connection con = ConnectDB.getConnection();
+             PreparedStatement ps = con.prepareStatement(sql);
+             ResultSet rs = ps.executeQuery()) {
 
             while (rs.next()) {
-
-                String maNV = rs.getString("maNV");
-                String tenNV = rs.getString("tenNV");
-                String chucVu = rs.getString("chucVu");
-                float luong = rs.getFloat("luong");
-                String sdt = rs.getString("sdt");
-
-                NhanVien nv = new NhanVien(maNV, tenNV, chucVu, luong, sdt);
+                NhanVien nv = new NhanVien(
+                        rs.getString("maNV"),
+                        rs.getString("tenNV"),
+                        rs.getString("chucVu"),
+                        rs.getFloat("luong"),
+                        rs.getString("sdt")
+                );
                 ds.add(nv);
             }
 
@@ -39,22 +36,24 @@ public class NhanVien_DAO {
         return ds;
     }
 
+    // ================== THÊM ==================
     public boolean themNhanVien(NhanVien nv) {
 
-        try {
-            Connection con = ConnectDB.getConnection();
+        String sql = "INSERT INTO NhanVien (maNV, tenNV, sdt, chucVu, luong) VALUES (?, ?, ?, ?, ?)";
 
-            String sql = "INSERT INTO NhanVien VALUES (?, ?, ?, ?, ?)";
-            PreparedStatement ps = con.prepareStatement(sql);
+        try (Connection con = ConnectDB.getConnection();
+             PreparedStatement ps = con.prepareStatement(sql)) {
 
             ps.setString(1, nv.getMaNV());
             ps.setString(2, nv.getTenNV());
-            ps.setString(3, nv.getChucVu());
-            ps.setFloat(4, nv.getLuong());
-            ps.setString(5, nv.getSdt());
+            ps.setString(3, nv.getSdt());     
+            ps.setString(4, nv.getChucVu());
+            ps.setFloat(5, nv.getLuong());
 
             return ps.executeUpdate() > 0;
 
+        } catch (SQLIntegrityConstraintViolationException e) {
+            System.out.println("❌ Trùng mã nhân viên!");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -62,14 +61,13 @@ public class NhanVien_DAO {
         return false;
     }
 
-
+    // ================== XOÁ ==================
     public boolean xoaNhanVien(String maNV) {
 
-        try {
-            Connection con = ConnectDB.getConnection();
+        String sql = "DELETE FROM NhanVien WHERE maNV=?";
 
-            String sql = "DELETE FROM NhanVien WHERE maNV=?";
-            PreparedStatement ps = con.prepareStatement(sql);
+        try (Connection con = ConnectDB.getConnection();
+             PreparedStatement ps = con.prepareStatement(sql)) {
 
             ps.setString(1, maNV);
 
@@ -82,18 +80,18 @@ public class NhanVien_DAO {
         return false;
     }
 
+    // ================== CẬP NHẬT ==================
     public boolean capNhatNhanVien(NhanVien nv) {
 
-        try {
-            Connection con = ConnectDB.getConnection();
+        String sql = "UPDATE NhanVien SET tenNV=?, sdt=?, chucVu=?, luong=? WHERE maNV=?";
 
-            String sql = "UPDATE NhanVien SET tenNV=?, chucVu=?, luong=?, sdt=? WHERE maNV=?";
-            PreparedStatement ps = con.prepareStatement(sql);
+        try (Connection con = ConnectDB.getConnection();
+             PreparedStatement ps = con.prepareStatement(sql)) {
 
             ps.setString(1, nv.getTenNV());
-            ps.setString(2, nv.getChucVu());
-            ps.setFloat(3, nv.getLuong());
-            ps.setString(4, nv.getSdt());
+            ps.setString(2, nv.getSdt());
+            ps.setString(3, nv.getChucVu());
+            ps.setFloat(4, nv.getLuong());
             ps.setString(5, nv.getMaNV());
 
             return ps.executeUpdate() > 0;
@@ -105,15 +103,15 @@ public class NhanVien_DAO {
         return false;
     }
 
-    public NhanVien timNhanVien(String ma) {
+    // ================== TÌM ==================
+    public NhanVien timNhanVien(String maNV) {
 
-        try {
-            Connection con = ConnectDB.getConnection();
+        String sql = "SELECT * FROM NhanVien WHERE maNV=?";
 
-            String sql = "SELECT * FROM NhanVien WHERE maNV=?";
-            PreparedStatement ps = con.prepareStatement(sql);
+        try (Connection con = ConnectDB.getConnection();
+             PreparedStatement ps = con.prepareStatement(sql)) {
 
-            ps.setString(1, ma);
+            ps.setString(1, maNV);
 
             ResultSet rs = ps.executeQuery();
 

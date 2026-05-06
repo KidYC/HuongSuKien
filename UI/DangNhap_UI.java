@@ -106,19 +106,20 @@ public class DangNhap_UI extends JFrame implements ActionListener, KeyListener {
 	  public void XuLiDangNhap() {  
 		  TaiKhoan_DAO dao = new TaiKhoan_DAO();
 
-		  String tenDangNhap = txtUsername.getText();
-		  String matKhau = new String(txtPwd.getPassword());
-		    
-		  if (dao.kiemTraDangNhap(tenDangNhap, matKhau)) {
-		      new TrangChu_UI().setVisible(true);
-		      dispose();
-		  } else {
-		      JOptionPane.showMessageDialog(this, "Sai tài khoản hoặc mật khẩu!");
-		  }
-		txtUsername.setText("");
-		txtPwd.setText("");
-		
-		txtUsername.requestFocus();
+		  String user = txtUsername.getText().trim();
+		  String pwd = new String(txtPwd.getPassword()).trim();
+	
+
+		    if (dao.kiemTraDangNhap(user, pwd)) {
+		        new TrangChu_UI().setVisible(true);
+		        dispose();
+		    } else {
+		        JOptionPane.showMessageDialog(this, "Sai tài khoản hoặc mật khẩu!");
+		    }
+
+		    txtUsername.setText("");
+		    txtPwd.setText("");
+		    txtUsername.requestFocus();
 	  }
 	  
 	  @Override
