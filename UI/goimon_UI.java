@@ -444,7 +444,7 @@ public class goimon_UI extends JFrame implements ActionListener{
 	    btn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 	}
 	public static void main(String [] args) {
-		// new goimon_UI();
+		 //new goimon_UI();
 		
 	}
 	
