@@ -1,36 +1,56 @@
 package Class;
 
+import java.time.LocalDate;
+
 public class HoaDon {
-	private int maHD;
-	private int maBan;
+	private String maHD;
+	private LocalDate ngayLapHoaDon;
+	private String phuongThuc;
 	private float tongTien;
-	public HoaDon(int maHD, int maBan, float tongTien) {
-		super();
+	
+    public HoaDon(String maHD, LocalDate ngayLapHoaDon, String phuongThuc, float tongTien) {
+
 		this.maHD = maHD;
-		this.maBan = maBan;
+		this.ngayLapHoaDon = ngayLapHoaDon;
+		this.phuongThuc = phuongThuc;
 		this.tongTien = tongTien;
 	}
-	public int getMaHD() {
+     
+	public String getMaHD() {
 		return maHD;
 	}
-	public void setMaHD(int maHD) {
+
+	public void setMaHD(String maHD) {
 		this.maHD = maHD;
 	}
-	public int getMaBan() {
-		return maBan;
+
+	public LocalDate getNgayLapHoaDon() {
+		return ngayLapHoaDon;
 	}
-	public void setMaBan(int maBan) {
-		this.maBan = maBan;
+
+	public void setNgayLapHoaDon(LocalDate ngayLapHoaDon) {
+		this.ngayLapHoaDon = ngayLapHoaDon;
 	}
+
+	public String getPhuongThuc() {
+		return phuongThuc;
+	}
+
+	public void setPhuongThuc(String phuongThuc) {
+		this.phuongThuc = phuongThuc;
+	}
+
 	public float getTongTien() {
 		return tongTien;
 	}
+
 	public void setTongTien(float tongTien) {
 		this.tongTien = tongTien;
 	}
-    @Override
+
+	@Override
     public String toString() {
     	// TODO Auto-generated method stub
-    	return maHD +"-"+maBan+"-"+tongTien;
+    	return maHD +"-"+ngayLapHoaDon+"-"+phuongThuc+"-"+tongTien;
     }
 }

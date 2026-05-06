@@ -3,37 +3,52 @@ package Class;
 public class SanPham {
 	private int maSP;
 	private String tenSP;
-	private float gia;
-	public SanPham(int maSP, String tenSP, float gia) {
-
+	private int soLuong;
+	private float donGia;
+	
+	public SanPham(int maSP, String tenSP, int soLuong, float donGia) {
+	
 		this.maSP = maSP;
 		this.tenSP = tenSP;
-		this.gia = gia;
+		this.soLuong = soLuong;
+		this.donGia = donGia;
 	}
-	public SanPham() {
-		
-	}
+     
 	public int getMaSP() {
 		return maSP;
 	}
+
 	public void setMaSP(int maSP) {
 		this.maSP = maSP;
 	}
+
 	public String getTenSP() {
 		return tenSP;
 	}
+
 	public void setTenSP(String tenSP) {
 		this.tenSP = tenSP;
 	}
-	public float getGia() {
-		return gia;
+
+	public int getSoLuong() {
+		return soLuong;
 	}
-	public void setGia(float gia) {
-		this.gia = gia;
+
+	public void setSoLuong(int soLuong) {
+		this.soLuong = soLuong;
 	}
+
+	public float getDonGia() {
+		return donGia;
+	}
+
+	public void setDonGia(float donGia) {
+		this.donGia = donGia;
+	}
+
 	@Override
 	public String toString() {
 
-		return maSP + " - " + tenSP + " - " + gia;
+		return maSP + " - " + tenSP + " - "+soLuong +"-"+ donGia;
 	}
 }

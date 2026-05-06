@@ -2,35 +2,58 @@ package Class;
 
 public class Ban {
 	private int maBan;
-	private String tenBan;
 	private String trangThai;
-	public Ban(int maBan, String tenBan, String trangThai) {
+	private int soCho;
+	
+	
+	public Ban(int maBan, String trangThai, int soCho) {
 		this.maBan = maBan;
-		this.tenBan = tenBan;
 		this.trangThai = trangThai;
+		this.soCho = soCho;
 	}
+	
+
+
 	public int getMaBan() {
 		return maBan;
 	}
+
+
+
 	public void setMaBan(int maBan) {
 		this.maBan = maBan;
 	}
-	public String getTenBan() {
-		return tenBan;
-	}
-	public void setTenBan(String tenBan) {
-		this.tenBan = tenBan;
-	}
+
+
+
 	public String getTrangThai() {
 		return trangThai;
 	}
+
+
+
 	public void setTrangThai(String trangThai) {
 		this.trangThai = trangThai;
 	}
+
+
+
+	public int getSoCho() {
+		return soCho;
+	}
+
+
+
+	public void setSoCho(int soCho) {
+		this.soCho = soCho;
+	}
+
+
+
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return maBan + "-"+tenBan+"-"+trangThai;
+		return maBan + "-"+trangThai+"-"+soCho;
 	}
     
 }
