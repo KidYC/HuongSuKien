@@ -103,8 +103,8 @@ public class DangNhap_UI extends JFrame implements ActionListener, KeyListener {
 		  XuLiDangNhap();
 	  }
 	  public void XuLiDangNhap() {  
-		String user = txtUsername.getText();
-		String pwd = new String(txtPwd.getPassword());
+		String user = txtUsername.getText().trim();
+		String pwd = new String(txtPwd.getPassword()).trim();
 		
 		if (tk.dangNhap(user, pwd)) {
             new TrangChu_UI().setVisible(true);
