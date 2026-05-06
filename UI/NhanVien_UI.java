@@ -8,11 +8,15 @@ import javax.swing.Box;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
+
+import Class.NhanVien;
+import DAO.NhanVien_DAO;
 
 public class NhanVien_UI extends JFrame{
 	private JLabel lblTitle;
@@ -37,13 +41,16 @@ public class NhanVien_UI extends JFrame{
 	private JPanel pCen;
 	private JPanel pEast;
 	private JPanel pSouth;
-
+	private NhanVien_DAO dao = new NhanVien_DAO();
+	private JButton btnQuaylai;
+	
 	public NhanVien_UI() {
 		setTitle("Danh Sách Sản Phẩm");
 		setSize(900, 600);
 		setLocationRelativeTo(null);
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		buildUI();
+		loadData();
 	}
 	
 	public void buildUI() {
@@ -145,11 +152,81 @@ public class NhanVien_UI extends JFrame{
 		pSouth = new JPanel();
 		pSouth.setBackground(mauNenQuan);
 		
+		// thêm nhân viên
+		btnThem.addActionListener(e -> {
+		    try {
+		        NhanVien nv = new NhanVien(
+		            txtMa.getText(),
+		            txtTen.getText(),
+		            txtChucVu.getText(),
+		            Float.parseFloat(txtLuong.getText()),
+		            txtSDT.getText()
+		        );
+
+		        if (dao.themNhanVien(nv)) {
+		            JOptionPane.showMessageDialog(this, "Thêm thành công!");
+		            loadData();
+		        } else {
+		            JOptionPane.showMessageDialog(this, "Thêm thất bại!");
+		        }
+		    } catch (Exception ex) {
+		        JOptionPane.showMessageDialog(this, "Lỗi dữ liệu!");
+		    }
+		});
 		
-//		pSouth.add(btnKiemTraTonKho);
+		//xóa nhân viên
+		btnXoa.addActionListener(e -> {
+		    int row = table.getSelectedRow();
+
+		    if (row == -1) {
+		        JOptionPane.showMessageDialog(this, "Chọn nhân viên cần xóa!");
+		        return;
+		    }
+
+		    String maNV = model.getValueAt(row, 0).toString();
+
+		    int confirm = JOptionPane.showConfirmDialog(
+		            this,
+		            "Bạn có chắc muốn xóa nhân viên này?",
+		            "Xác nhận",
+		            JOptionPane.YES_NO_OPTION
+		    );
+
+		    if (confirm == JOptionPane.YES_OPTION) {
+		        if (dao.xoaNhanVien(maNV)) {
+		            JOptionPane.showMessageDialog(this, "Xóa thành công!");
+		            loadData();
+		        } else {
+		            JOptionPane.showMessageDialog(this, "Xóa thất bại!");
+		        }
+		    }
+		});
+		
+		btnQuaylai = new JButton("Quay lại");
+		btnQuaylai.setBackground(mauBanTrong);
+		pSouth.add(btnQuaylai);
+		
+		btnQuaylai.addActionListener(e -> {
+		    new TrangChu_UI().setVisible(true);
+		    dispose(); // đóng màn hình hiện tại
+		});
 		
 		add(pSouth, BorderLayout.SOUTH);
 		setVisible(true);
+	}
+	// loadData
+	public void loadData() {
+	    model.setRowCount(0); // xóa dữ liệu cũ
+
+	    for (NhanVien nv : dao.getAllNhanVien()) {
+	        model.addRow(new Object[]{
+	                nv.getMaNV(),
+	                nv.getTenNV(),
+	                nv.getChucVu(),
+	                nv.getLuong(),
+	                nv.getSdt()
+	        });
+	    }
 	}
 	
 	public static void main(String[] args) {

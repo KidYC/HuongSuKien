@@ -35,7 +35,7 @@ public class SanPham_UI extends JFrame implements ActionListener{
 		setTitle("Danh Sách Sản Phẩm");
 		setSize(900, 600);
 		setLocationRelativeTo(null);
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		buildUI();
 		loadData();
 	}

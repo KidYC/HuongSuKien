@@ -12,7 +12,7 @@ public class TrangChu_UI extends JFrame {
     public TrangChu_UI() {
         setTitle("Quản Lý Quán Cafe");
         setSize(900, 600);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
 
         Color mauNen = Color.decode("#F5F5DC");
