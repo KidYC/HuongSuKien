@@ -70,7 +70,7 @@ public class goimon_UI extends JFrame implements ActionListener{
 		Color maunenquan = Color.decode("#F5F5DC");
 		Color mauchu = Color.decode("#3E2723");
 		setTitle("QLCF_UI");
-		setSize(650,600);
+		setSize(750,600);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setLayout(new BorderLayout());
 		
@@ -284,6 +284,10 @@ public class goimon_UI extends JFrame implements ActionListener{
 		
 		//pSouthR
 		pSouthR = new JPanel();
+		
+		JButton btnQuayLai = new JButton("Quay lại");
+
+		pSouthR.add(btnQuayLai); 
 		pSouthR.setLayout(new BoxLayout(pSouthR,BoxLayout.X_AXIS));
 		pSouthR.add(tongtien);
 		pSouthR.add(Box.createHorizontalStrut(120));
@@ -291,7 +295,13 @@ public class goimon_UI extends JFrame implements ActionListener{
 		pright.add(pSouthR,BorderLayout.SOUTH);
 		
 		
-		
+		btnQuayLai.addActionListener(new ActionListener() {
+		    @Override
+		    public void actionPerformed(ActionEvent e) {
+		        dispose();
+		        new chonban_UI().setVisible(true);
+		    }
+		});
 		
 		
 		pCen.add(scroll);
@@ -327,6 +337,7 @@ public class goimon_UI extends JFrame implements ActionListener{
 		table.setGridColor(Color.LIGHT_GRAY);
 	
 		setVisible(true);
+		
 		
 	}
 	public void actionPerformed(ActionEvent e) {
@@ -433,7 +444,7 @@ public class goimon_UI extends JFrame implements ActionListener{
 	    btn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 	}
 	public static void main(String [] args) {
-//		new goimon_UI();
+		// new goimon_UI();
 		
 	}
 	

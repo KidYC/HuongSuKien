@@ -107,7 +107,7 @@ public class DangNhap_UI extends JFrame implements ActionListener, KeyListener {
 		String pwd = new String(txtPwd.getPassword());
 		
 		if (tk.dangNhap(user, pwd)) {
-            new goimon_UI().setVisible(true);
+            new TrangChu_UI().setVisible(true);
             dispose();
         } else {
             JOptionPane.showMessageDialog(this, "Sai tài khoản hoặc mật khẩu!");
