@@ -1,15 +1,31 @@
 package Class;
 
 public class TaiKhoan {
-	  private String tenDangNhap;
-	  private String matKhau;
+    private String tenDangNhap;
+    private String matKhau;
 
-	  public TaiKhoan(String user, String pass) {
-	      this.tenDangNhap = user;
-	      this.matKhau = pass;
-	  }
+    public TaiKhoan() {
+        super();
+    }
 
-	  public boolean dangNhap(String user, String pass) {
-	      return tenDangNhap.equals(user) && matKhau.equals(pass);
-	  }
+    public TaiKhoan(String tenDangNhap, String matKhau) {
+        this.tenDangNhap = tenDangNhap;
+        this.matKhau = matKhau;
+    }
+
+    public String getTenDangNhap() {
+        return tenDangNhap;
+    }
+
+    public void setTenDangNhap(String tenDangNhap) {
+        this.tenDangNhap = tenDangNhap;
+    }
+
+    public String getMatKhau() {
+        return matKhau;
+    }
+
+    public void setMatKhau(String matKhau) {
+        this.matKhau = matKhau;
+    }
 }

@@ -21,7 +21,7 @@ import javax.swing.JSplitPane;
 import javax.swing.JTextField;
 
 import Class.TaiKhoan;
-
+import DAO.TaiKhoan_DAO;
 public class DangNhap_UI extends JFrame implements ActionListener, KeyListener {
 
 	private JTextField txtUsername;
@@ -102,16 +102,19 @@ public class DangNhap_UI extends JFrame implements ActionListener, KeyListener {
 		// TODO Auto-generated method stub
 		  XuLiDangNhap();
 	  }
+	  
 	  public void XuLiDangNhap() {  
-		String user = txtUsername.getText();
-		String pwd = new String(txtPwd.getPassword());
-		
-		if (tk.dangNhap(user, pwd)) {
-            new TrangChu_UI().setVisible(true);
-            dispose();
-        } else {
-            JOptionPane.showMessageDialog(this, "Sai tài khoản hoặc mật khẩu!");
-        }
+		  TaiKhoan_DAO dao = new TaiKhoan_DAO();
+
+		  String tenDangNhap = txtUsername.getText();
+		  String matKhau = new String(txtPwd.getPassword());
+		    
+		  if (dao.kiemTraDangNhap(tenDangNhap, matKhau)) {
+		      new TrangChu_UI().setVisible(true);
+		      dispose();
+		  } else {
+		      JOptionPane.showMessageDialog(this, "Sai tài khoản hoặc mật khẩu!");
+		  }
 		txtUsername.setText("");
 		txtPwd.setText("");
 		
