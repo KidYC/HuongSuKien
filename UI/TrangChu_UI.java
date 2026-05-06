@@ -80,7 +80,7 @@ public class TrangChu_UI extends JFrame {
 
         bestSeller.add(createItem("Cà phê sữa", "/IMG/cf-sua.jpg"));
         bestSeller.add(createItem("Trà đào", "/IMG/tra-dao.jpg"));
-bestSeller.add(createItem("Bạc xỉu", "/IMG/bacxiu.jpg"));
+        bestSeller.add(createItem("Bạc xỉu", "/IMG/bacxiu.jpg"));
         bestSeller.add(createItem("Sinh tố bơ", "/IMG/sinhtobo.jpg"));
         
         
@@ -126,9 +126,9 @@ bestSeller.add(createItem("Bạc xỉu", "/IMG/bacxiu.jpg"));
         content.add(new JScrollPane(txtNote), BorderLayout.SOUTH);
 
         // event
-        //btnBanHang.addActionListener(e -> );
+        btnBanHang.addActionListener(e -> {new chonban_UI().setVisible(true);});
 
-       // btnThongKe.addActionListener(e -> );
+        btnSanPham.addActionListener(e -> {new SanPham_UI().setVisible(true);});
 
         btnDangXuat.addActionListener(e -> {
             int confirm = JOptionPane.showConfirmDialog(this,
