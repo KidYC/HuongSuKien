@@ -34,7 +34,7 @@ public class HoaDon_UI extends JFrame{
 		setTitle("Danh Sách Hoá Đơn");
 		setSize(900, 600);
 		setLocationRelativeTo(null);
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		buildUI();
 		
 	}

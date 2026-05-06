@@ -63,7 +63,7 @@ public class ThanhToan_UI extends JFrame implements ActionListener{
 		setTitle("Thanh Toán");
 		setSize(900, 600);
 		setLocationRelativeTo(null);
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		
 		   
 

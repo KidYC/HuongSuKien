@@ -71,7 +71,7 @@ public class goimon_UI extends JFrame implements ActionListener{
 		Color mauchu = Color.decode("#3E2723");
 		setTitle("QLCF_UI");
 		setSize(750,600);
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setLayout(new BorderLayout());
 		
 		getContentPane().setBackground(maunenquan);
@@ -299,7 +299,7 @@ public class goimon_UI extends JFrame implements ActionListener{
 		    @Override
 		    public void actionPerformed(ActionEvent e) {
 		        dispose();
-		        new chonban_UI().setVisible(true);
+		        new TrangChu_UI().setVisible(true);
 		    }
 		});
 		
