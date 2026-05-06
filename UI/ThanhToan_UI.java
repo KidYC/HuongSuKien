@@ -211,13 +211,13 @@ public class ThanhToan_UI extends JFrame implements ActionListener{
 		if(source.equals(btnThanhToan))
 		{
 			JOptionPane.showMessageDialog(this, "Thanh Toán Thành Công");
-			new goimon_UI().setVisible(true);
+//			new goimon_UI().setVisible(true);
 			dispose();
 		}
 		
 		if(source.equals(btnHuy)) {
 			dispose();
-			new goimon_UI().setVisible(true);
+//			new goimon_UI().setVisible(true);
 			
 		}
 	}
